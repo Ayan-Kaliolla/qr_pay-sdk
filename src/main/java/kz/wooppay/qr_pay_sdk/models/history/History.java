@@ -14,9 +14,8 @@ public class History extends Status {
     /** client history id*/
     private long id;
 
-    /** payment service name*/
-    @SerializedName("service_name")
-    private String serviceName;
+    /** service merchant*/
+    private Merchant merchant;
 
     /** date of operation*/
     @SerializedName("done_date")
@@ -39,14 +38,14 @@ public class History extends Status {
         this.id = id;
     }
 
-    /** getter for payment service name*/
-    public String getServiceName() {
-        return serviceName;
+    /** getter for service merchant*/
+    public Merchant getMerchant() {
+        return merchant;
     }
 
-    /** setter for payment service name*/
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    /** setter for service merchant*/
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
     }
 
     /** getter for date of operation*/
@@ -84,7 +83,7 @@ public class History extends Status {
     public String toString() {
         return "History{" +
                 "id=" + id +
-                ", serviceName='" + serviceName + '\'' +
+                ", Merchant='" + merchant + '\'' +
                 ", doneDate='" + doneDate + '\'' +
                 ", createDate='" + createDate + '\'' +
                 ", amount=" + amount +
