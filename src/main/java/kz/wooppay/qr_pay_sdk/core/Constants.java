@@ -9,8 +9,8 @@ package kz.wooppay.qr_pay_sdk.core;
  **/
 
 public class Constants {
-    private static final boolean IS_DEBUG = false;
-    public static final String BASE_URL = IS_DEBUG ? "http://qrpay.wooppay.com/" : "http://api.qr.yii/";
+    private static final boolean IS_DEBUG = true;
+    public static final String BASE_URL = IS_DEBUG ? "http://api.qr.yii/" : "https://qrpay.kz/";
 
     public static final String KEY_AUTHTOKEN = "authorization";
     public static final String KEY_POINT_ID = "pointId";

@@ -34,7 +34,7 @@ public class ReceiptDownloader {
      * @see Toast
      * @see Context
      * */
-    public static void download(Context context, int operationId, String description, String title) {
+    public static void download(Context context, long operationId, String description, String title) {
         if (description == null) description= "receipt";
         if (title == null) title = "receipt";
         String token = TokenManager.getToken();
