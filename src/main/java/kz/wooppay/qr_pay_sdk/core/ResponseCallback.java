@@ -14,11 +14,16 @@ import kz.wooppay.qr_pay_sdk.models.error.Error;
 
 public interface ResponseCallback {
     /**
-     * Handle  method for response if request is success
+     * Handle method for response if request is success
      * */
     void onSuccess(Headers headers, Object data);
     /**
-     * Handle  method for response if request is failure
+     * Handle method for response if request is failure
      * */
-    void onFailure(List<Error> message);
+    void onFailure(List<Error> message, int responseCode);
+
+    /**
+     * Handle method for response if thrown Exception
+     * */
+    void onException(Exception ex);
 }

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.Arrays;
 import java.util.List;
 
 import kz.wooppay.qr_pay_sdk.core.ResponseCallback;
@@ -53,7 +52,7 @@ public class HttpHandler implements Callback{
         }else {
             Type listType = new TypeToken<List<Error>>(){}.getType();
             List<Error> errors = new Gson().fromJson(errorJson, listType);
-            callback.onFailure(errors);
+            callback.onFailure(errors, response.code());
         }
     }
 
@@ -62,9 +61,6 @@ public class HttpHandler implements Callback{
      * */
     @Override
     public void onFailure(Call call, Throwable t) {
-        Error error = new Error();
-        error.setMessage(t.getMessage());
-        error.setField("server");
-        callback.onFailure(Arrays.asList(error));
+        callback.onException(new Exception(t));
     }
 }

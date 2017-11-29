@@ -1,6 +1,5 @@
 package kz.wooppay.qr_pay_sdk.models.error;
 
-import com.google.gson.annotations.SerializedName;
 
 public class Error {
     /** Error field*/
