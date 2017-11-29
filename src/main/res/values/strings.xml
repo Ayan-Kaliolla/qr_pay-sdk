@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">qr_pay-sdk</string>
+    <string name="app_name">rest</string>
+    <string name="Invalid_username_or_password">Неверный логин/пароль</string>
+    <string name="ACCOUNT_BLOCKED_EXCEPTION">Ваш кошелек заблокирован из-за подозрительной активности. Обратитесь в службу поддержки</string>
+    <string name="BILLING_TECHNICAL_PROBLEM_EXCEPTION">Технические проблемы на стороне поставщика услуг</string>
+    <string name="BILLING_TEMPORARY_UNAVAILABLE_EXCEPTION">Поставщик услуг временно недоступен для осуществления платежей</string>
+    <string name="BILLING_WROND_ACCOUNT_FORMAT_EXCEPTION">Указанный идентификатор клиента не найден в базе данных постащика услуг</string>
+    <string name="BILLING_NO_ACCOUNT_EXCEPTION">Указанный идентификатор клиента не найден в базе данных постащика услуг</string>
+    <string name="TOO_OFTEN_CONFIRMATION_EXCEPTION">Слишком частые попытки запроса кода. Попробуйте через 1 минуту</string>
+    <string name="WRONG_CONFIRMATION_CODE_EXCEPTION">Неверный код подтверждения</string>
+    <string name="OBERTHUR_ACCUMULATOR_INSUFFICIENT_FUNDS_EXCEPTION">Для совершения платежей вам необходимо потратить стартовый баланс</string>
+    <string name="OBERTHUR_INSUFFICIENT_FUNDS_EXCEPTION">На балансе недостаточно средств</string>
+    <string name="token_not_found">Время сессии истекло, пожалуйста, авторизуйтесь снова</string>
 </resources>
