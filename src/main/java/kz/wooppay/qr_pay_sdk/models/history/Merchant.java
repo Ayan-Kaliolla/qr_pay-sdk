@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by akaliolla on 29.11.2017.
  */
 
-class Merchant {
+public class Merchant {
 
     /** payment service brand name*/
     @SerializedName("brand_name")
