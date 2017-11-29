@@ -20,7 +20,7 @@ public interface ResponseCallback {
     /**
      * Handle method for response if request is failure
      * */
-    void onFailure(List<Error> message, int responseCode);
+    void onFailure(List<Error> errors, int responseCode);
 
     /**
      * Handle method for response if thrown Exception
