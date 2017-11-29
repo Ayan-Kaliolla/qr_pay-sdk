@@ -1,8 +1,9 @@
 package kz.wooppay.qr_pay_sdk.core;
 
-import kz.wooppay.qr_pay_sdk.models.error.ErrorObject;
-import okhttp3.Headers;
+import java.util.List;
 
+import okhttp3.Headers;
+import kz.wooppay.qr_pay_sdk.models.error.Error;
 /**
  * ResponseCallback - callback interface for handle response
  *
@@ -19,5 +20,5 @@ public interface ResponseCallback {
     /**
      * Handle  method for response if request is failure
      * */
-    void onFailure(ErrorObject message);
+    void onFailure(List<Error> message);
 }

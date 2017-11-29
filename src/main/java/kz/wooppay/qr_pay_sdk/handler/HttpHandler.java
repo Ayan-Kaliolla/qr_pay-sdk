@@ -1,11 +1,15 @@
 package kz.wooppay.qr_pay_sdk.handler;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.Arrays;
+import java.util.List;
 
 import kz.wooppay.qr_pay_sdk.core.ResponseCallback;
 import kz.wooppay.qr_pay_sdk.core.auth_token.TokenManager;
 import kz.wooppay.qr_pay_sdk.handler.util.JsonUtil;
-import kz.wooppay.qr_pay_sdk.models.error.ErrorObject;
 import kz.wooppay.qr_pay_sdk.models.error.Error;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,8 +51,9 @@ public class HttpHandler implements Callback{
             }
             callback.onSuccess(response.headers(), response.body());
         }else {
-            ErrorObject errorObject = new Gson().fromJson(errorJson, ErrorObject.class);
-            callback.onFailure(errorObject);
+            Type listType = new TypeToken<List<Error>>(){}.getType();
+            List<Error> errors = new Gson().fromJson(errorJson, listType);
+            callback.onFailure(errors);
         }
     }
 
@@ -58,11 +63,8 @@ public class HttpHandler implements Callback{
     @Override
     public void onFailure(Call call, Throwable t) {
         Error error = new Error();
-        error.setCode((short)-1);
-        error.setErrorClass(t.getClass().getName());
         error.setMessage(t.getMessage());
-        ErrorObject errorObject = new ErrorObject();
-        errorObject.setError(error);
-        callback.onFailure(errorObject);
+        error.setField("server");
+        callback.onFailure(Arrays.asList(error));
     }
 }
