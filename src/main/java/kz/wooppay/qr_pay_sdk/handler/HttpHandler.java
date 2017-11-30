@@ -50,9 +50,14 @@ public class HttpHandler implements Callback{
             }
             callback.onSuccess(response.headers(), response.body());
         }else {
-            Type listType = new TypeToken<List<Error>>(){}.getType();
-            List<Error> errors = new Gson().fromJson(errorJson, listType);
-            callback.onFailure(errors, response.code());
+            try {
+                Type listType = new TypeToken<List<Error>>() {
+                }.getType();
+                List<Error> errors = new Gson().fromJson(errorJson, listType);
+                callback.onFailure(errors, response.code());
+            }catch (Exception ex){
+                callback.onException(ex);
+            }
         }
     }
 

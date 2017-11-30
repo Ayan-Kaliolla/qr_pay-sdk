@@ -9,12 +9,14 @@ import kz.wooppay.qr_pay_sdk.models.cashier_activate.QRCode;
 import kz.wooppay.qr_pay_sdk.models.history.CashierHistory;
 import kz.wooppay.qr_pay_sdk.models.history.Point;
 import kz.wooppay.qr_pay_sdk.models.history.WrapperPoint;
+import kz.wooppay.qr_pay_sdk.models.notification.NotificationToken;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.Streaming;
 
 import static kz.wooppay.qr_pay_sdk.core.Constants.VERSION;
 
@@ -127,12 +129,13 @@ public interface MerchantRestClient {
     @GET(VERSION + "/history")
     Call<List<CashierHistory>> getHistoryByPointIdAndCashDeskId(@Query("point_id") long pointId, @Query("cash_desk_id") long cashDeskId, @Query("per-page") int perPage, @Query("offset") int offset);
 
-//    /**
-//     * Method for call remote registration token service from server
-//     *
-//     * @param  token  model NotificationToken
-//     * @see NotificationToken
-//     *
-//    @POST(VERSION + "/user/set-device-token")
-//    Call<ResponseBody> registrationFireBaseToken(@Body NotificationToken token);*/
+    /**
+     * Method for call remote registration token service from server
+     *
+     * @param  token  model NotificationToken
+     * @see NotificationToken
+     */
+    @Streaming
+    @POST(VERSION + "/cashier/set-device-token")
+    Call<ResponseBody> registrationFireBaseToken(@Body NotificationToken token);
 }

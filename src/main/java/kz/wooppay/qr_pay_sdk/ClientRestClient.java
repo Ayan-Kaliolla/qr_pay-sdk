@@ -114,4 +114,13 @@ public interface ClientRestClient {
     @GET(VERSION + "/history")
     Call<List<History>> getClientHistory(@Query("per-page") int perPage, @Query("offset") int offset);
 
+
+    /**
+     * Method for download receipt.
+     *
+     * @param operationId   payment operation id
+     * @return history model list
+     * */
+    @GET(VERSION + "/history/receipt")
+    Call<ResponseBody> downloadReceipt(@Query("id") long operationId);
 }
