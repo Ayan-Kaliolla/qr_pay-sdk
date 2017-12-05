@@ -6,6 +6,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLContext;
@@ -51,20 +52,20 @@ public abstract class BaseRestClientFactory {
 
     /**
      * Method create interceptor
-     *
+     * @param   locale          locale for response
      * @return  tokenInterceptor          Interceptor for add token to header in request
      * @see Interceptor
      * */
-    protected static Interceptor createHeaderInterceptor() {
+    protected static Interceptor createHeaderInterceptor(final Locale locale) {
         return new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 String token = TokenManager.getToken();
                 Request request;
                 if (token != null && !token.isEmpty()) {
-                    request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, token).build();
+                    request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, token).addHeader("language", locale.getLanguage()).build();
                 } else {
-                    request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, "").build();
+                    request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, "").addHeader("language", locale.getLanguage()).build();
                 }
                 return chain.proceed(request);
             }

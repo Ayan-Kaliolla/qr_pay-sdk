@@ -1,5 +1,7 @@
 package kz.wooppay.qr_pay_sdk.core.rest_factory;
 
+import java.util.Locale;
+
 import kz.wooppay.qr_pay_sdk.MerchantRestClient;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -43,7 +45,20 @@ public class MerchantRestClientFactory extends BaseRestClientFactory {
      * @see MerchantRestClient
      * */
     public static MerchantRestClient getRestClient() {
-        Interceptor tokenInterceptor = createHeaderInterceptor();
+        return getRestClient(new Locale("RU"));
+    }
+
+    /**
+     * Method return RestClient for interacting with server
+     * @param   locale  response locale
+     * @return  MerchantRestClient    RestClient - rest api for interacting with server
+     * @see MerchantRestClient
+     * */
+    public static MerchantRestClient getRestClient(Locale locale) {
+        if (locale == null){
+            locale = new Locale("RU");
+        }
+        Interceptor tokenInterceptor = createHeaderInterceptor(locale);
         HttpLoggingInterceptor httpLoggingInterceptor = createHttpLoggingInterceptor();
         OkHttpClient httpClient = createHttpClient(tokenInterceptor, httpLoggingInterceptor);
         return initResClient(httpClient);
