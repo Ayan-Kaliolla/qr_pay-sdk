@@ -32,10 +32,10 @@ public class CashierHistory extends Status{
     private long merchantDealer;
     /** id of the operation in the sender's system*/
     @SerializedName("ext_id_ps")
-    private long senderSystemOperationId;
+    private String senderSystemOperationId;
     /** id of the operation in the receiver system*/
     @SerializedName("ext_id_m")
-    private long recipientSystemOperationId;
+    private String recipientSystemOperationId;
     /** date of the operation creation*/
     @SerializedName("create_date")
     private String createDate;
@@ -44,16 +44,16 @@ public class CashierHistory extends Status{
     private String doneDate;
     /** merchant's commission*/
     @SerializedName("merchant_commission")
-    private BigDecimal merchantCommission;
+    private String merchantCommission;
     /** merchant dealer commission*/
     @SerializedName("partner_merchant_commission")
-    private BigDecimal partnerMerchantCommission;
+    private String partnerMerchantCommission;
     /** commission of an audience dealer*/
     @SerializedName("partner_audience_commission")
-    private BigDecimal partnerAudienceCommission;
+    private String partnerAudienceCommission;
     /** commission of payment system*/
     @SerializedName("payment_system_commission")
-    private BigDecimal paymentSystemCommission;
+    private String paymentSystemCommission;
     /** number of the customer who made the payment*/
     @SerializedName("subject_number")
     private String subject_number;
@@ -129,22 +129,22 @@ public class CashierHistory extends Status{
     }
 
     /** getter for id of the operation in the sender's system*/
-    public long getSenderSystemOperationId() {
+    public String getSenderSystemOperationId() {
         return senderSystemOperationId;
     }
 
     /** setter for id of the operation in the sender's system*/
-    public void setSenderSystemOperationId(long senderSystemOperationId) {
+    public void setSenderSystemOperationId(String senderSystemOperationId) {
         this.senderSystemOperationId = senderSystemOperationId;
     }
 
     /** getter for id of the operation in the receiver system*/
-    public long getRecipientSystemOperationId() {
+    public String getRecipientSystemOperationId() {
         return recipientSystemOperationId;
     }
 
     /** setter for id of the operation in the receiver system*/
-    public void setRecipientSystemOperationId(long recipientSystemOperationId) {
+    public void setRecipientSystemOperationId(String recipientSystemOperationId) {
         this.recipientSystemOperationId = recipientSystemOperationId;
     }
 
@@ -169,42 +169,42 @@ public class CashierHistory extends Status{
     }
 
     /** getter for merchant's commission*/
-    public BigDecimal getMerchantCommission() {
+    public String getMerchantCommission() {
         return merchantCommission;
     }
 
     /** setter for merchant's commission*/
-    public void setMerchantCommission(BigDecimal merchantCommission) {
+    public void setMerchantCommission(String merchantCommission) {
         this.merchantCommission = merchantCommission;
     }
 
     /** getter for commission of an audience dealer*/
-    public BigDecimal getPartnerAudienceCommission() {
+    public String getPartnerAudienceCommission() {
         return partnerAudienceCommission;
     }
 
     /** setter for commission of an audience dealer*/
-    public void setPartnerAudienceCommission(BigDecimal partnerAudienceCommission) {
+    public void setPartnerAudienceCommission(String partnerAudienceCommission) {
         this.partnerAudienceCommission = partnerAudienceCommission;
     }
 
     /** getter for merchant dealer commission*/
-    public BigDecimal getPartnerMerchantCommission() {
+    public String getPartnerMerchantCommission() {
         return partnerMerchantCommission;
     }
 
     /** setter for merchant dealer commission*/
-    public void setPartnerMerchantCommission(BigDecimal partnerMerchantCommission) {
+    public void setPartnerMerchantCommission(String partnerMerchantCommission) {
         this.partnerMerchantCommission = partnerMerchantCommission;
     }
 
     /** getter for commission of payment system*/
-    public BigDecimal getPaymentSystemCommission() {
+    public String getPaymentSystemCommission() {
         return paymentSystemCommission;
     }
 
     /** setter for commission of payment system*/
-    public void setPaymentSystemCommission(BigDecimal paymentSystemCommission) {
+    public void setPaymentSystemCommission(String paymentSystemCommission) {
         this.paymentSystemCommission = paymentSystemCommission;
     }
 

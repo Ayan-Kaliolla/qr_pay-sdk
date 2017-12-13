@@ -8,7 +8,7 @@ public abstract class BaseAccount {
     @SerializedName("partner_login")
     private String partner;
 
-    /** setter for partner login  */
+    /** getter for partner login  */
     public String getPartner() {
         return partner;
     }
