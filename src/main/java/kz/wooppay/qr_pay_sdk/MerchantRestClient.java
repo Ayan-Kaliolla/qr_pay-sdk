@@ -3,6 +3,8 @@ package kz.wooppay.qr_pay_sdk;
 import java.util.List;
 
 import kz.wooppay.qr_pay_sdk.models.auth.CashierAccount;
+import kz.wooppay.qr_pay_sdk.models.auth.Password;
+import kz.wooppay.qr_pay_sdk.models.auth.RestorePassword;
 import kz.wooppay.qr_pay_sdk.models.auth.User;
 import kz.wooppay.qr_pay_sdk.models.cashier_activate.ActivationInfo;
 import kz.wooppay.qr_pay_sdk.models.cashier_activate.QRCode;
@@ -39,6 +41,30 @@ public interface MerchantRestClient {
      * */
     @POST(VERSION + "/auth")
     Call<User> auth(@Body CashierAccount account);
+
+
+    /**
+     * Method for restore password
+     *
+     * @param restoreData   model RestorePassword
+     * @return ResponseBody
+     * @see RestorePassword
+     * @see ResponseBody
+     * */
+    @POST(VERSION + "/auth/restore-password/request")
+    Call<User> restoreRequest(@Body RestorePassword restoreData);
+
+
+    /**
+     * Method for restore password
+     *
+     * @param password   model Password
+     * @return ResponseBody
+     * @see Password
+     * @see ResponseBody
+     * */
+    @POST(VERSION + "/auth/restore-password/confirm")
+    Call<User> setNewPassword(@Body Password password);
 
     /**
      * Method for call remote point list service from server
