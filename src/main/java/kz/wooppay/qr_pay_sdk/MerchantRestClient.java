@@ -52,7 +52,7 @@ public interface MerchantRestClient {
      * @see ResponseBody
      * */
     @POST(VERSION + "/auth/restore-password/request")
-    Call<User> restoreRequest(@Body RestorePassword restoreData);
+    Call<ResponseBody> restoreRequest(@Body RestorePassword restoreData);
 
 
     /**
@@ -64,7 +64,7 @@ public interface MerchantRestClient {
      * @see ResponseBody
      * */
     @POST(VERSION + "/auth/restore-password/confirm")
-    Call<User> setNewPassword(@Body Password password);
+    Call<ResponseBody> setNewPassword(@Body Password password);
 
     /**
      * Method for call remote point list service from server
