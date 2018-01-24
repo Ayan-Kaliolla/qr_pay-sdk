@@ -123,4 +123,12 @@ public interface ClientRestClient {
      * */
     @GET(VERSION + "/history/receipt")
     Call<ResponseBody> downloadReceipt(@Query("id") long operationId);
+
+    /**
+     * Method for get qr.
+     *
+     * @return img gr.
+     * */
+    @GET(VERSION + "/qr-code/generate")
+    Call<ResponseBody> getQR();
 }
