@@ -8,7 +8,10 @@ import kz.wooppay.qr_pay_sdk.models.history.History;
 import kz.wooppay.qr_pay_sdk.models.payment.CheckFields;
 import kz.wooppay.qr_pay_sdk.models.payment.FieldsArray;
 import kz.wooppay.qr_pay_sdk.models.payment.FieldsMap;
+import kz.wooppay.qr_pay_sdk.models.payment.FrameResponse;
 import kz.wooppay.qr_pay_sdk.models.payment.PayByBalance;
+import kz.wooppay.qr_pay_sdk.models.payment.PaymentData;
+import kz.wooppay.qr_pay_sdk.models.payment.PayByCard;
 import kz.wooppay.qr_pay_sdk.models.payment.PayResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -74,14 +77,24 @@ public interface ClientRestClient {
     /**
      * Method for call remote payment service from server
      *
-     * @param  payByBalance  model payByBalance
+     * @param  paymentData  model PaymentData
      * @return PayResponse  payment info
-     * @see PayByBalance
+     * @see PaymentData
      * @see PayResponse
      * */
     @POST(VERSION + "/payment/pay-by-balance")
-    Call<PayResponse> payByBalance(@Body PayByBalance payByBalance);
+    Call<PayResponse> payByBalance(@Body PaymentData paymentData);
 
+    /**
+     * Method for call remote payment service from server
+     *
+     * @param  paymentData  model PaymentData
+     * @return FrameResponse frame url
+     * @see PaymentData
+     * @see FrameResponse
+     * */
+    @POST(VERSION + "/payment/pay-by-card")
+    Call<FrameResponse> payByCard(@Body PaymentData paymentData);
 
     /**
      * Method for call remote history service from server
