@@ -1,5 +1,7 @@
 package kz.wooppay.qr_pay_sdk.models.payment;
 
+import java.io.Serializable;
+
 /**
  * FrameResponse - this class contains property for describe button text with key
  *
@@ -9,7 +11,7 @@ package kz.wooppay.qr_pay_sdk.models.payment;
  **/
 
 
-public class PaymentButtons {
+public class PaymentButtons implements Serializable{
 
     /** button id*/
     private int key;
