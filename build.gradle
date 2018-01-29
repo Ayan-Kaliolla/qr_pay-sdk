@@ -21,6 +21,13 @@ android {
     }
 }
 
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://raw.github.com/synergian/wagon-git/releases"}
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
