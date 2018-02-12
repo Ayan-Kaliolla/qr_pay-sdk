@@ -2,6 +2,7 @@ package kz.wooppay.qr_pay_sdk.core;
 
 import java.util.List;
 
+import kz.wooppay.qr_pay_sdk.models.error.ErrorResult;
 import okhttp3.Headers;
 import kz.wooppay.qr_pay_sdk.models.error.Error;
 /**
@@ -21,6 +22,11 @@ public interface ResponseCallback {
      * Handle method for response if request is failure
      * */
     void onFailure(List<Error> errors, int responseCode);
+
+    /**
+     * Handle method for response if request is failure
+     * */
+    void onFailure(ErrorResult errors, int responseCode);
 
     /**
      * Handle method for response if thrown Exception

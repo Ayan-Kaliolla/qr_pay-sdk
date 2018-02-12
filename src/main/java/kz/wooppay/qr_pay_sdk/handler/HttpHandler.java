@@ -10,6 +10,7 @@ import kz.wooppay.qr_pay_sdk.core.ResponseCallback;
 import kz.wooppay.qr_pay_sdk.core.auth_token.TokenManager;
 import kz.wooppay.qr_pay_sdk.handler.util.JsonUtil;
 import kz.wooppay.qr_pay_sdk.models.error.Error;
+import kz.wooppay.qr_pay_sdk.models.error.ErrorResult;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,10 +52,18 @@ public class HttpHandler implements Callback{
             callback.onSuccess(response.headers(), response.body());
         }else {
             try {
-                Type listType = new TypeToken<List<Error>>() {
-                }.getType();
-                List<Error> errors = new Gson().fromJson(errorJson, listType);
-                callback.onFailure(errors, response.code());
+                Object errors = null;
+                try {
+                    Type listType = new TypeToken<List<Error>>() {}.getType();
+                    errors = new Gson().fromJson(errorJson, listType);
+                }catch (Exception je){
+                    errors = new Gson().fromJson(errorJson, ErrorResult.class);
+                }
+                if (errors instanceof List) {
+                    callback.onFailure((List<Error>) errors, response.code());
+                }else {
+                    callback.onFailure((ErrorResult) errors, response.code());
+                }
             }catch (Exception ex){
                 callback.onException(ex);
             }
