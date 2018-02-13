@@ -43,10 +43,12 @@ public class FrameResponse {
         this.operation = operation;
     }
 
+    /** getter for successUrl*/
     public String getSuccessUrl() {
         return successUrl;
     }
 
+    /** setter for successUrl*/
     public void setSuccessUrl(String successUrl) {
         this.successUrl = successUrl;
     }
