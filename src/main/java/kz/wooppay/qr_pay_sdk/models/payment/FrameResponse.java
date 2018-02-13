@@ -19,6 +19,10 @@ public class FrameResponse {
     @SerializedName("iframe")
     private String url;
 
+    /** url for invoke, if payment is success*/
+    @SerializedName("success_url")
+    private String successUrl;
+
     /** getter for frame url*/
     public String getUrl() {
         return url;
@@ -37,5 +41,13 @@ public class FrameResponse {
     /** setter for operation*/
     public void setOperation(Operation operation) {
         this.operation = operation;
+    }
+
+    public String getSuccessUrl() {
+        return successUrl;
+    }
+
+    public void setSuccessUrl(String successUrl) {
+        this.successUrl = successUrl;
     }
 }
