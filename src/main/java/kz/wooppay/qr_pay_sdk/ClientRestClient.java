@@ -93,7 +93,8 @@ public interface ClientRestClient {
      * @see PaymentData
      * @see FrameResponse
      * */
-    @POST(VERSION + "/payment/pay-by-card")
+//    @POST(VERSION + "/payment/pay-by-card")
+    @POST(VERSION + "/payment/pay-by-wooppay-site")
     Call<FrameResponse> payByCard(@Body PaymentData paymentData);
 
     /**
