@@ -9,7 +9,7 @@ package kz.wooppay.qr_pay_sdk.core.auth_token;
  **/
 
 public final class TokenManager {
-    /** Свойство - хронимый токен */
+    /** A property is a persistent token */
     private static String token;
 
     /**

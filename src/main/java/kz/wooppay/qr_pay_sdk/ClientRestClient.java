@@ -5,18 +5,18 @@ import java.util.List;
 import kz.wooppay.qr_pay_sdk.models.auth.Account;
 import kz.wooppay.qr_pay_sdk.models.auth.CheckSms;
 import kz.wooppay.qr_pay_sdk.models.history.History;
+import kz.wooppay.qr_pay_sdk.models.payment.Card;
 import kz.wooppay.qr_pay_sdk.models.payment.CheckFields;
 import kz.wooppay.qr_pay_sdk.models.payment.FieldsArray;
 import kz.wooppay.qr_pay_sdk.models.payment.FieldsMap;
 import kz.wooppay.qr_pay_sdk.models.payment.FrameResponse;
-import kz.wooppay.qr_pay_sdk.models.payment.PayByBalance;
 import kz.wooppay.qr_pay_sdk.models.payment.PaymentData;
-import kz.wooppay.qr_pay_sdk.models.payment.PayByCard;
 import kz.wooppay.qr_pay_sdk.models.payment.PayResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -83,6 +83,7 @@ public interface ClientRestClient {
      * @see PayResponse
      * */
     @POST(VERSION + "/payment/pay-by-balance")
+    @Deprecated
     Call<PayResponse> payByBalance(@Body PaymentData paymentData);
 
     /**
@@ -93,9 +94,19 @@ public interface ClientRestClient {
      * @see PaymentData
      * @see FrameResponse
      * */
-//    @POST(VERSION + "/payment/pay-by-card")
-    @POST(VERSION + "/payment/pay-by-wooppay-site")
-    Call<FrameResponse> payByCard(@Body PaymentData paymentData);
+
+    @POST(VERSION + "/payment/pay")
+    Call<FrameResponse> pay(@Body PaymentData paymentData);
+
+    /**
+     * Method for call remote service from get all linked cards
+     *
+     * @return List<Card> linked card list
+     * @see Card
+     * */
+
+    @POST(VERSION + "/card/get-linked-cards")
+    Call<List<Card>> getLinkedCards();
 
     /**
      * Method for call remote history service from server

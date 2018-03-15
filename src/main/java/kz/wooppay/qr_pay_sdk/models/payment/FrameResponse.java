@@ -19,9 +19,9 @@ public class FrameResponse {
     @SerializedName("iframe")
     private String url;
 
-    /** url for invoke, if payment is success*/
-    @SerializedName("success_url")
-    private String successUrl;
+    /** session id*/
+    @SerializedName("cookies")
+    private String cookies;
 
     /** getter for frame url*/
     public String getUrl() {
@@ -44,12 +44,12 @@ public class FrameResponse {
     }
 
     /** getter for successUrl*/
-    public String getSuccessUrl() {
-        return successUrl;
+    public String getCookies() {
+        return cookies;
     }
 
     /** setter for successUrl*/
-    public void setSuccessUrl(String successUrl) {
-        this.successUrl = successUrl;
+    public void setCookies(String cookies) {
+        this.cookies = cookies;
     }
 }
