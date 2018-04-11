@@ -1,7 +1,5 @@
 package kz.wooppay.qr_pay_sdk.models.auth;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Account extends BaseAccount {
 
     /** Phone number of the user*/

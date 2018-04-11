@@ -1,5 +1,6 @@
 package kz.wooppay.qr_pay_sdk;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kz.wooppay.qr_pay_sdk.models.auth.Account;
@@ -19,6 +20,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 import static kz.wooppay.qr_pay_sdk.core.Constants.VERSION;
 
@@ -107,6 +109,26 @@ public interface ClientRestClient {
 
     @POST(VERSION + "/card/get-linked-cards")
     Call<List<Card>> getLinkedCards();
+
+
+    /**
+     * Method for linked cards
+     *
+     * @return url to frame for add card
+     * @see FrameResponse
+     * */
+
+    @POST(VERSION + "/card/card-linking")
+    Call<FrameResponse> linkingCard();
+
+    /**
+     * Method for unlink card
+     *
+     * @return result
+     * @see ResponseBody
+     * */
+    @POST(VERSION + "/card/remove-card")
+    Call<ResponseBody> unlinkCard(@Body HashMap<String, Long> cardId);
 
     /**
      * Method for call remote history service from server

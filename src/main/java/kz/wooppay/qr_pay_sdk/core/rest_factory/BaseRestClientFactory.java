@@ -65,7 +65,7 @@ public abstract class BaseRestClientFactory {
                 if (token != null && !token.isEmpty()) {
                     request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, token).addHeader("language", locale.getLanguage()).build();
                 } else {
-                    request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, "").addHeader("language", locale.getLanguage()).build();
+                    request = chain.request().newBuilder().addHeader("language", locale.getLanguage()).build();
                 }
                 return chain.proceed(request);
             }
