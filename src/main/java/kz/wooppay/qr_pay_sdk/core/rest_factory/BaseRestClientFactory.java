@@ -63,20 +63,7 @@ public abstract class BaseRestClientFactory {
                 Request request = null;
                 if (token != null && !token.isEmpty()) {
                     request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, token).build();
-                } else {
-                    request = chain.request().newBuilder().addHeader(KEY_AUTHTOKEN, "").build();
                 }
-/*
-
-                try {
-                    final Request copy = request.newBuilder().build();
-                    final Buffer buffer = new Buffer();
-                    copy.body().writeTo(buffer);
-                    System.out.println(buffer.readUtf8());
-                } catch (final IOException e) {
-                    System.out.println("did not work");
-                }
-*/
                 return chain.proceed(request);
             }
         };
