@@ -1,5 +1,7 @@
 package kz.wooppay.qr_pay_sdk.models.auth;
 
+
+
 public class Account extends BaseAccount {
 
     /** Phone number of the user*/
